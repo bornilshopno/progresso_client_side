@@ -1,13 +1,19 @@
 import React from 'react';
 import { GiBoomerangSun } from 'react-icons/gi';
 import { TiThMenu } from 'react-icons/ti';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
+
+    const { user, userSignOut } = useAuth();
     const links = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
-        <li><NavLink to={"/progress-board"}>Progress Board</NavLink> </li>
+       {user && 
+       <><li><NavLink to={"/progress-board"}>Progress Board</NavLink> </li>
         <li><NavLink to={"/add-task"}>Add Task</NavLink> </li>
+        </>}
+       
 
     </>
     return (
@@ -26,7 +32,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Register</a>
+                    { user ? <button className='btn' onClick={userSignOut}>LogOut</button> : <Link to={"/register"} className="btn">Register</Link> }
                     <div className="dropdown">
                         {/* tabIndex={0} role="button" */}
                         <div className="btn btn-ghost lg:hidden">
