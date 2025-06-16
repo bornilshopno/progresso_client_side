@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublicly = axios.create({
-    baseURL: "http://localhost:5000/"
+    baseURL: "https://progresso-backend-phi.vercel.app/"
 })
 
 const useAxiosPublic = () => {

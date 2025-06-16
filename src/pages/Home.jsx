@@ -20,7 +20,7 @@ const Home = () => {
                             Streamline your workflow with an intuitive Kanban board — track tasks, update progress, and stay aligned with your goals. Whether you're managing solo projects or working with a team, our app helps you prioritize, organize, and deliver efficiently.
                         </p>
                        
-                        { user ? <Link to={"/progress-board"} >View Progress Board</Link> : <Link to={"/login"} className="btn">Log In</Link>}
+                        { user ? <Link className='btn rounded-lg' to={"/progress-board"} >View Progress Board</Link> : <Link to={"/login"} className="btn rounded-lg">Log In</Link>}
                         
                     </div>
                 </div>

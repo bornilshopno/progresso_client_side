@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import useTasks from "../hooks/useTasks";
 import { Link } from "react-router";
+import useAuth from "../hooks/useAuth";
 
 const categoryStyles = {
   "To-Do": "bg-blue-200 dark:bg-blue-600 border-blue-400 dark:border-blue-500",
@@ -32,9 +33,9 @@ const categoryIcons = {
 
 const ProgressBoard = () => {
   const [tasks, , refetch] = useTasks();
-  const axiosPublicly=useAxiosPublic();
+  const axiosPublicly = useAxiosPublic();
   const categories = ["To-Do", "In Progress", "Done"];
-
+  const { user } = useAuth()
   const handleDragEnd = async (result) => {
     if (!result.destination) return;
 
@@ -89,6 +90,7 @@ const ProgressBoard = () => {
 
   return (
     <div className="container mx-auto p-5">
+      
       <h2 className="text-3xl font-bold text-center mb-5">
         Task Management Board
       </h2>

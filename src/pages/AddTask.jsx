@@ -45,9 +45,9 @@ const AddTask = () => {
     };
 
     return (
-        <div className="w-full h-screen  p-6 rounded-lg shadow-lg bg-white dark:bg-black text-black dark:text-white transition-all">
+        <div className="w-full p-6 pt-2 rounded-lg shadow-lg transition-all">
             <div className="w-full md:w-11/12 mx-auto">
-                <h2 className="text-2xl font-bold text-center mb-4">Onboard Task</h2>
+                <h2 className="text-2xl font-bold text-center mb-4">Onboard Task with Details</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="form-control">
                         <label className="block font-medium">Task Title*</label>
@@ -111,7 +111,7 @@ const AddTask = () => {
 
                     <button
                         type="submit"
-                        className="w-full btn"
+                        className="w-full btn rounded-lg"
                     >
                         Add Task
                     </button>

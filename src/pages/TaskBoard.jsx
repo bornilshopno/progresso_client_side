@@ -10,33 +10,44 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import { Link } from "react-router";
+import useAuth from "../hooks/useAuth";
 
 // setting styles and icons based on task status
 const statusStyle = {
-    "to-do": "bg-blue-200 border-2",
-    "in-progress": "bg-amber-200 border-2",
-    "done": "bg-green-200 border-2"
+    "to-do": "bg-blue-200 dark:bg-blue-600 border-blue-400 dark:border-blue-500",
+    "in-progress": "bg-yellow-200 dark:bg-yellow-600 border-yellow-400 dark:border-yellow-500",
+    "done": "bg-green-200 dark:bg-green-600 border-green-400 dark:border-green-500"
 }
 
 const statusIcons = {
-    "to-do": <FaTasks />,
-    "in-progress": <FaSpinner />,
-    "done": <FaCheckCircle />
+    "to-do": <FaTasks className="text-blue-600 dark:text-blue-200" />,
+    "in-progress": <FaSpinner className="text-yellow-600 dark:text-yellow-200" />,
+    "done": <FaCheckCircle className="text-green-600 dark:text-green-200" />
 }
 
 const TaskBoard = () => {
     const [alltasks, , refetch] = useTasks();
+    const { user } = useAuth();
     const axiosPublicly = useAxiosPublic();
     const statusAll = ["to-do", "in-progress", "done"]
 
-    console.log(alltasks)
+    // console.log(alltasks)
     const handleDragEnd = async (result) => {
         const { source, destination } = result;
-        console.log(result)
         if (!destination) return;
         console.log("have result", result)
+        const taskId = result.draggableId;
+        const updatedStatus = statusAll[destination.droppableId];
+        console.log("Id", taskId, "update", updatedStatus);
+        try {
+            await axiosPublicly.put(`/tasks/dragged-task/${taskId}`, { status: updatedStatus });
+            refetch();
+        } catch (error) {
+            console.error("Error updating task:", error);
+        }
+    };
 
-    }
+
 
     const deleteTask = async (taskId) => {
         const result = await Swal.fire({
@@ -75,7 +86,16 @@ const TaskBoard = () => {
 
     return (
         <>
-            <h3 className='text-center text-lg py-5'>"Plan. Prioritize. Progress."</h3>
+            <div className="flex justify-end">
+                <h2 className="badge badge-primary px-5 py-2 rounded-2xl">
+                    Logged in with : {user?.email}
+                </h2>
+               
+            </div>
+             <h2 className="text-3xl font-bold text-center">
+                    Task Management Board
+                </h2>
+            <h3 className='text-center text-lg py-2'>"Plan. Prioritize. Progress."</h3>
 
             <div>
                 <DragDropContext onDragEnd={handleDragEnd}>
@@ -88,7 +108,7 @@ const TaskBoard = () => {
                                     <div
                                         ref={provided.innerRef}
                                         {...provided.droppableProps}
-                                        className={`${statusStyle[state]} border-red-950 border-4 p-4 rounded-xl`}
+                                        className={`${statusStyle[state]} border-2 p-4 rounded-xl`}
                                     >
 
                                         <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
@@ -106,10 +126,10 @@ const TaskBoard = () => {
                                                             ref={provided.innerRef}
                                                             {...provided.draggableProps}
                                                             {...provided.dragHandleProps}
-                                                            className="p-4 shadow rounded-lg border bg-gray-500">
+                                                            className="p-4 shadow rounded-lg border bg-gray-50 text-gray-900 dark:bg-gray-800 dark:text-white">
 
                                                             <h2 className={`statusStyle[state]`}>
-                                                                {state}
+                                                                {state || "to-do"}
                                                             </h2>
 
                                                             <h4 className="font-medium text-lg">
@@ -120,12 +140,12 @@ const TaskBoard = () => {
                                                                 {task.description}
                                                             </p>
                                                             <p>
-                                                                {task.dueDate}
+                                                                {task.dueDate || "TBC"}
                                                             </p>
 
-                                                            <div className="flex justify-between">
-                                                                <div className="badge badge-info">
-                                                                     {task.priority}
+                                                            <div className="flex justify-between pt-2">
+                                                                <div className="badge  px-5 py-2 rounded-2xl">
+                                                                    {task.priority || "low"}
                                                                 </div>
                                                                 <div className="flex justify-end gap-2 mt-2">
                                                                     <Link
@@ -156,11 +176,7 @@ const TaskBoard = () => {
                                 }
 
                             </Droppable>
-
-
                         ))}
-
-
                     </div>
                 </DragDropContext>
             </div>

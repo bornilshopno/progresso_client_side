@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import { app } from "../auths/firebase_auth";
 import AuthContext from "./AuthContext";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
+
 
 
 const AuthProvider = ({ children }) => {
@@ -11,8 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
 
    
-    const axiosPublicly=useAxiosPublic()
-    const axiosSecure= useAxiosSecure()
+  
     const auth = getAuth(app);
     const createUser = (email, password) => {
         setLoading(true)
@@ -36,7 +34,8 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);     
+            setUser(currentUser);   
+             setLoading(false);  
             // if(currentUser?.email){
             //     const user={email: currentUser.email};
             //     axiosPublicly.post("/jwt" ,user)
@@ -58,7 +57,7 @@ const AuthProvider = ({ children }) => {
 
         return () => unSubscribe();
     }, [auth])
-      console.log(user)
+
 
     const authInfo = { loading, setLoading, createUser, loginUser, user, setUser, userSignOut, googleSignIn, auth }
     return (

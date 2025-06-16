@@ -25,7 +25,7 @@ const Register = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const photo = form.photo.value;
+        // const photo = form.photo.value;
         const name = form.name.value;
 
         setPassErr("")
@@ -120,12 +120,12 @@ const Register = () => {
                                     </label>
                                     <input type={visible ? "text" : "password"} name="password" placeholder="password" className="input input-bordered text-gray-700" required />
                                 </div>
-                                <div className="form-control flex justify-between">
+                                {/* <div className="form-control flex justify-between">
                                     <label className="label">
                                         <span className="label-text ">Photo URL :</span>
                                     </label>
                                     <input type="url" name="photo" placeholder="Your Photo Url" className="input input-bordered text-gray-700" required />
-                                </div>
+                                </div> */}
 
                             </div>
                             <p className="text-red-500 font-bold text-center">{passErr}</p>

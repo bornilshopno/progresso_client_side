@@ -1,7 +1,4 @@
 import { Route, Routes } from 'react-router';
-import KanbanBoard from './pages/KanbanBoard';
-
-
 import NotFound from './pages/NotFound';
 import MainLayout from './components/MainLayout';
 import Home from './pages/Home';
@@ -10,6 +7,7 @@ import Register from './auths/Register';
 import LogIn from './auths/LogIn';
 import UpdateTask from './pages/UpdateTask';
 import TaskBoard from './pages/TaskBoard';
+import PrivateRoute from './auths/PrivateRoute';
 
 
 
@@ -21,9 +19,9 @@ const AppRoutes = () => {
                 {/* Wrap pages where Navbar/Footer should show */}
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />
-                    <Route path="/progress-board" element={<TaskBoard />} /> //need to be private
-                    <Route path="/add-task" element={<AddTask />} /> //need to be private
-                    <Route path="/update-task/:id" element={<UpdateTask />} />
+                    <Route path="/progress-board" element={<PrivateRoute><TaskBoard /></PrivateRoute>} /> //need to be private
+                    <Route path="/add-task" element={<PrivateRoute><AddTask /></PrivateRoute>} /> //need to be private
+                    <Route path="/update-task/:id" element={<PrivateRoute><UpdateTask /></PrivateRoute>} />
                     <Route path="/login" element={<LogIn />} />
                     <Route path="/register" element={<Register />} />
                 </Route>

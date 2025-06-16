@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GiBoomerangSun } from 'react-icons/gi';
 import { TiThMenu } from 'react-icons/ti';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../hooks/useAuth';
+import { IoMoon, IoSunny } from 'react-icons/io5';
 
 const Navbar = () => {
 
     const { user, userSignOut } = useAuth();
+       const [dark, setDark] = useState(false);
     const links = <>
-        <li><NavLink to={"/"}>Home</NavLink></li>
+        <li><NavLink className="rounded-lg" to={"/"}>Home</NavLink></li>
        {user && 
-       <><li><NavLink to={"/progress-board"}>Progress Board</NavLink> </li>
-        <li><NavLink to={"/add-task"}>Add Task</NavLink> </li>
+       <><li><NavLink className="rounded-lg" to={"/progress-board"}>Progress Board</NavLink> </li>
+        <li><NavLink className="rounded-lg" to={"/add-task"}>Add Task</NavLink> </li>
         </>}
        
 
     </>
+
+   
+
+    const darkModeHandler = () => {
+        setDark(!dark);
+        document.body.classList.toggle("dark");
+    }
     return (
-        <div>
-            <div className="navbar bg-base-100 shadow-sm">
+        <div className='bg-gray-200 text-gray-900 dark:bg-gray-950 dark:text-white z-20 '>
+            <div className="navbar shadow-sm fixed top-0 backdrop-filter backdrop-blur-lg bg-opacity-30">
                 <div className="navbar-start">
 
                     <div className=" text-2xl italic flex items-center gap-3">
@@ -32,7 +41,17 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    { user ? <button className='btn' onClick={userSignOut}>LogOut</button> : <Link to={"/register"} className="btn">Register</Link> }
+
+                     <button onClick={() => darkModeHandler()} className='mr-2'>
+                        {
+
+                            dark && <IoSunny className="text-3xl" />
+                        }
+                        {
+                            !dark && <IoMoon className="text-3xl text-gray-800" />
+                        }
+                    </button>
+                    { user ? <button className='btn rounded-lg' onClick={userSignOut}>LogOut</button> : <Link to={"/register"} className="btn rounded-lg">Register</Link> }
                     <div className="dropdown">
                         {/* tabIndex={0} role="button" */}
                         <div className="btn btn-ghost lg:hidden">
@@ -46,6 +65,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            <div className='h-16'></div>
         </div>
     );
 };
