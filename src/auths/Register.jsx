@@ -10,14 +10,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import useAuth from "../hooks/useAuth";
 import SocialLogin from "./SocialLogin";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 // import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
     const [visible, setVisible] = useState(false)
     const [passErr, setPassErr] = useState("")
-    const { setLoading, createUser, setUser, auth, googleSignIn, userSignOut } = useAuth()
+    const { setLoading, createUser, setUser, auth, userSignOut } = useAuth()
     const navigate = useNavigate()
     const axiosPublicly = useAxiosPublic();
     const handleRegister = e => {

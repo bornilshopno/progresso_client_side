@@ -1,7 +1,7 @@
 import { FaGoogle } from "react-icons/fa6";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 

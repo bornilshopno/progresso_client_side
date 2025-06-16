@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
 
 

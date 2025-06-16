@@ -1,4 +1,4 @@
-import React from "react";
+
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import {
   FaTasks,
@@ -11,9 +11,11 @@ import moment from "moment";
 import Swal from "sweetalert2";
 
 
-import useTasks from "../../hooks/useTasks";
-import { Link } from "react-router-dom";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
+
+
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import useTasks from "../hooks/useTasks";
+import { Link } from "react-router";
 
 const categoryStyles = {
   "To-Do": "bg-blue-200 dark:bg-blue-600 border-blue-400 dark:border-blue-500",
