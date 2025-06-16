@@ -35,24 +35,8 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);   
-             setLoading(false);  
-            // if(currentUser?.email){
-            //     const user={email: currentUser.email};
-            //     axiosPublicly.post("/jwt" ,user)
-            //     .then(res=> {
-            //         setLoading(false)
-            //     })
-            // }
-            // else{
-            //     axiosPublicly.post("/logout" ,{})
-            //     .then(res=> {console.log(res.data);
-            //         setLoading(false)
-            //     })
-            //     .catch(error => {
-            //         console.error('Error during logout:', error);
-            //     });
-            // }
-        
+            setLoading(false);  
+                    
         })
 
         return () => unSubscribe();

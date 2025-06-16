@@ -33,7 +33,7 @@ const TaskBoard = () => {
 
     // console.log(alltasks)
     const handleDragEnd = async (result) => {
-        const { source, destination } = result;
+        const { destination } = result;
         if (!destination) return;
         console.log("have result", result)
         const taskId = result.draggableId;

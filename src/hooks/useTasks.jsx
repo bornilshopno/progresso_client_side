@@ -14,7 +14,7 @@ const useTasks = () => {
                 return result.data
             }
         })
-        // console.log(alltasks)
+       
 
     return [alltasks, loading,refetch]
 };
