@@ -41,12 +41,9 @@ const LogIn = () => {
 
     return (
         <div className="bg-[url('/network.jpg')] bg-cover bg-center">
-            {/* <Helmet>
-                <title>LifeStyle Circuit || LogIn</title>
-            </Helmet> */}
             <div className="hero min-h-96 ">
 
-                <div className="hero-content flex-col lg:flex-row gap-10 lg:gap-20 w-10/12 lg:w-11/12 mx-auto">
+                <div className="hero-content isolation-auto flex-col lg:flex-row gap-10 lg:gap-20 w-10/12 lg:w-11/12 mx-auto">
                     <div className="text-center lg:text-center lg:flex-1">
 
                         <Lottie animationData={regSignIn} className=""></Lottie>
@@ -72,7 +69,7 @@ const LogIn = () => {
                                     <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
                                 </label> */}
                             <div className="form-control mt-6 ">
-                                <button className="btn bg-gray-400 w-full">Login</button>
+                                <button className="btn bg-gray-400 w-full rounded-lg">Login</button>
                             </div>
                         </form>
                         <button className="absolute right-8 top-31 py-2" onClick={() => setVisible(!visible)}>

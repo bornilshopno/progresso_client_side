@@ -14,8 +14,7 @@ const Navbar = () => {
        {user && 
        <><li><NavLink className="rounded-lg" to={"/progress-board"}>Progress Board</NavLink> </li>
         <li><NavLink className="rounded-lg" to={"/add-task"}>Add Task</NavLink> </li>
-        </>}
-       
+        </>}     
 
     </>
 
@@ -26,8 +25,8 @@ const Navbar = () => {
         document.body.classList.toggle("dark");
     }
     return (
-        <div className='bg-gray-200 text-gray-900 dark:bg-gray-950 dark:text-white z-20 '>
-            <div className="navbar shadow-sm fixed top-0 backdrop-filter backdrop-blur-lg bg-opacity-30">
+        <div className='bg-gray-200 text-gray-900 dark:bg-gray-900 dark:text-white z-50 '>
+            <div className="navbar shadow-sm fixed top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 px-2 lg:px-10">
                 <div className="navbar-start">
 
                     <div className=" text-2xl italic flex items-center gap-3">
@@ -35,7 +34,7 @@ const Navbar = () => {
                         <span>progresso</span>
                     </div>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center hidden md:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
                     </ul>
@@ -52,14 +51,13 @@ const Navbar = () => {
                         }
                     </button>
                     { user ? <button className='btn rounded-lg' onClick={userSignOut}>LogOut</button> : <Link to={"/register"} className="btn rounded-lg">Register</Link> }
-                    <div className="dropdown">
-                        {/* tabIndex={0} role="button" */}
-                        <div className="btn btn-ghost lg:hidden">
+                    <div className="dropdown dropdown-end">
+                        <div className="btn btn-ghost md:hidden " tabIndex={0} role="button">
                             <TiThMenu className='text-2xl' />
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-gray-200 dark:bg-gray-800 rounded-box z-50 mt-3  w-32 p-2 shadow">
                             {links}
                         </ul>
                     </div>

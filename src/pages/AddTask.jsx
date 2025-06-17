@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 
 
 const AddTask = () => {
@@ -13,7 +14,7 @@ const AddTask = () => {
     } = useForm();
     const axiosPublicly = useAxiosPublic();
     const { user } = useAuth();
-    //    const { title, description, priority, dueDate } = req.body;
+    const navigate = useNavigate()
     const onSubmit = async (data) => {
         try {
             const newTask = {
@@ -25,6 +26,7 @@ const AddTask = () => {
             };
 
             const response = await axiosPublicly.post("/tasks/add-task", newTask);
+            console.log(response)
             if (response.data.insertedId) {
                 reset();
                 Swal.fire({
@@ -33,6 +35,7 @@ const AddTask = () => {
                     showConfirmButton: false,
                     timer: 1500,
                 });
+                navigate("/progress-board");
             }
         } catch (error) {
             console.error("Error adding task:", error);
@@ -47,7 +50,7 @@ const AddTask = () => {
     return (
         <div className="w-full p-6 pt-2 rounded-lg shadow-lg transition-all">
             <div className="w-full md:w-11/12 mx-auto">
-                <h2 className="text-2xl font-bold text-center mb-4">Onboard Task with Details</h2>
+                <h2 className="text-2xl font-bold text-center mb-4 flex underline">Onboard Task <span className="hidden md:flex"> with Details</span></h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="form-control">
                         <label className="block font-medium">Task Title*</label>

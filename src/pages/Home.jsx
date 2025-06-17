@@ -1,4 +1,3 @@
-import React from 'react';
 import { GiBoomerangSun } from 'react-icons/gi';
 import useAuth from '../hooks/useAuth';
 import { Link, Links } from 'react-router';
@@ -6,11 +5,11 @@ import { Link, Links } from 'react-router';
 const Home = () => {
      const { user } = useAuth();
     return (
-        <div>
+        
             <div className="hero min-h-screen">
-                <div className="hero-content text-center">
+                <div className="hero-content isolation-auto text-center">
                     <div className="max-w-lg">
-                        <h1 className="text-3xl font-bold flex gap-6 text-center justify-center">Welcome to <span className="italic flex items-center gap-3">
+                        <h1 className="text-3xl font-semibold flex flex-col sm:flex-row gap-3  text-center items-center justify-center">Welcome to <span className="italic flex items-center gap-1">
                             <GiBoomerangSun />
                             <span>progresso</span>
                         </span> </h1>
@@ -25,7 +24,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-        </div>
+       
     );
 };
 

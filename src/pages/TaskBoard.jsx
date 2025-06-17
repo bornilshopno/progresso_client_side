@@ -128,7 +128,7 @@ const TaskBoard = () => {
                                                             {...provided.dragHandleProps}
                                                             className="p-4 shadow rounded-lg border bg-gray-50 text-gray-900 dark:bg-gray-800 dark:text-white">
 
-                                                            <h2 className={`statusStyle[state]`}>
+                                                            <h2 className={`statusStyle[state] underline`}>
                                                                 {state || "to-do"}
                                                             </h2>
 
@@ -144,7 +144,7 @@ const TaskBoard = () => {
                                                             </p>
 
                                                             <div className="flex justify-between pt-2">
-                                                                <div className="badge  px-5 py-2 rounded-2xl">
+                                                                <div className="badge bg-blue-200 dark:bg-blue-500  px-5 py-2 rounded-2xl">
                                                                     {task.priority || "low"}
                                                                 </div>
                                                                 <div className="flex justify-end gap-2 mt-2">

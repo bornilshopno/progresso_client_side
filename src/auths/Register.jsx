@@ -88,12 +88,9 @@ const Register = () => {
 
     return (
         <div className="bg-[url('/network.jpg')] bg-cover bg-center">
-            {/* <Helmet>
-                 <title>LifeStyle Circuit || Register</title>
-               </Helmet> */}
             <div className="hero  min-h-screen ">
 
-                <div className="hero-content flex-col lg:flex-row-reverse gap-10 lg:gap-20 w-10/12 lg:w-11/12 mx-auto">
+                <div className="hero-content isolation-auto flex-col lg:flex-row-reverse gap-10 lg:gap-20 w-10/12 lg:w-11/12 mx-auto">
                     <div className="text-center lg:text-center lg:flex-1 ">
                         <Lottie animationData={regAnimation} className="w-full"></Lottie>
                     </div>
@@ -130,7 +127,7 @@ const Register = () => {
                             </div>
                             <p className="text-red-500 font-bold text-center">{passErr}</p>
                             <div className="form-control mt-6">
-                                <button className="btn bg-gray-400 w-full">Register</button>
+                                <button className="btn bg-gray-400 w-full rounded-lg">Register</button>
                             </div>
                         </form>
 

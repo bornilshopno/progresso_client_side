@@ -55,9 +55,9 @@ const UpdateTask = () => {
      <motion.div transition={{ type: "spring" }} animate={{ scale: 1.2 }} />
     );
     return (
-        <div className="w-full  p-6 rounded-lg shadow-lg transition-all">
+        <div className="w-full p-6 rounded-lg shadow-lg transition-all">
             <div className="w-full md:w-11/12 mx-auto">
-                <h2 className="text-2xl font-bold text-center mb-4">Update Selected Task</h2>
+                <h2 className="text-base md:text-2xl font-bold text-center mb-4 underline">Update Selected Task</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="form-control">
                         <label className="block font-medium">Task Title</label>
