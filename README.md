@@ -112,11 +112,9 @@ VITE_appId= 1:357346795980:web:756eb830b68e885686bd69
 - terminal give you a local Server link copy the link and past your browser run the link. 
 
 ### GitHub Repository
-* Link
+
 
 **[Client Side](https://github.com/bornilshopno/progresso_client_side)**
-
-* Link
 
 **[Server Side](https://github.com/bornilshopno/progresso-server-side-mongoose)**
 
