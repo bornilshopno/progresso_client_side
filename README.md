@@ -10,39 +10,39 @@ The goal of this project is to build a full-stack Kanban board application using
 
 ## Key Features of this Application
 
-#### User Authentication
+* #### User Authentication :
 
 Secure user registration and login with encrypted credentials
 
 Session-based access to protected routes
 
-#### Task Management with Kanban Workflow
+* #### Task Management with Kanban Workflow :
 
 Create, edit, and delete tasks
 
 Tasks organized into three columns: To Do, In Progress, and Completed
 
-#### Drag-and-Drop Functionality
+* #### Drag-and-Drop Functionality :
 
 Move tasks across columns using intuitive drag-and-drop UI powered by @hello-pangea/dnd
 
-#### Task Metadata
+* #### Task Metadata :
 
 Includes task title, description, deadline, and creation date
 
-#### Responsive and User-Friendly Interface
+* #### Responsive and User-Friendly Interface :
 
 Clean, minimal UI optimized for all screen sizes
 
-#### Real-Time Updates
+* #### Real-Time Updates :
 
 Tasks update instantly without refreshing the page (React Query caching & refetching)
 
-#### Role-based Route Protection (Optional)
+* #### Role-based Route Protection :
 
 Certain actions or routes accessible only to authenticated users
 
-#### Mongoose & MongoDB Integration
+* #### Mongoose & MongoDB Integration :
 
 Efficient data modeling and CRUD operations for task storage
 
@@ -60,17 +60,11 @@ Efficient data modeling and CRUD operations for task storage
 ### Framework/Library Used
 
 * React Js
-
 * React Router
-
 * Tailwind CSS
-
 * Daisy UI
-
 * Node Js
-
 * Mongoose
-
 * Express
 
 
@@ -118,10 +112,12 @@ VITE_appId= 1:357346795980:web:756eb830b68e885686bd69
 - terminal give you a local Server link copy the link and past your browser run the link. 
 
 ### GitHub Repository
-* Client Side
+* Link
+
 **[Client Side](https://github.com/bornilshopno/progresso_client_side)**
 
-* Server Side
+* Link
+
 **[Server Side](https://github.com/bornilshopno/progresso-server-side-mongoose)**
 
 ### Live Page Link:
