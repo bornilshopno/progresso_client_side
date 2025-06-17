@@ -111,11 +111,19 @@ VITE_appId= 1:357346795980:web:756eb830b68e885686bd69
 
 - terminal give you a local Server link copy the link and past your browser run the link. 
 
+### Improvement Plan
+
+- will add another route for a separate board to arrange individual tasks
+
+- will implement JWT authentication
+
+- for team based progress board will create an admin control for better tracking and management
+
+
 ### GitHub Repository
 
 
 **[Client Side](https://github.com/bornilshopno/progresso_client_side)**
-
 **[Server Side](https://github.com/bornilshopno/progresso-server-side-mongoose)**
 
 ### Live Page Link:

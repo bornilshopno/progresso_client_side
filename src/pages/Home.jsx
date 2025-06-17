@@ -6,7 +6,7 @@ const Home = () => {
      const { user } = useAuth();
     return (
         
-            <div className="hero min-h-screen">
+            <div className="hero min-h-[calc(100vh_-_115px)]">
                 <div className="hero-content isolation-auto text-center">
                     <div className="max-w-lg">
                         <h1 className="text-3xl font-semibold flex flex-col sm:flex-row gap-3  text-center items-center justify-center">Welcome to <span className="italic flex items-center gap-1">
