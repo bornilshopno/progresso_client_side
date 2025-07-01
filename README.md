@@ -13,19 +13,16 @@ The goal of this project is to build a full-stack Kanban board application using
 * #### User Authentication :
 
 Secure user registration and login with encrypted credentials
-
 Session-based access to protected routes
 
 * #### Task Management with Kanban Workflow :
 
 Create, edit, and delete tasks
-
 Tasks organized into three columns: To Do, In Progress, and Completed
 
 * #### Drag-and-Drop Functionality :
 
 Move tasks across columns using intuitive drag-and-drop UI powered by @hello-pangea/dnd
-
 * #### Task Metadata :
 
 Includes task title, description, deadline, and creation date
@@ -85,11 +82,10 @@ Efficient data modeling and CRUD operations for task storage
 ### Run the project locally step-by-step guideline :
 
 - clone the backend repository and run npm install from the terminal
-
-- create .env file with below credential
+- create .env file with credential of below
 ```
-DB_USER=progresso
-DB_PASSWORD=9v2Az1Ebqp1AAgai
+DB_USER
+DB_PASSWORD
 
 ```
 - then run the server with npm start
@@ -98,14 +94,14 @@ DB_PASSWORD=9v2Az1Ebqp1AAgai
 
 - open code folder and run npm install 
 
--in .local.env file paste below credential
+-in .local.env file paste credential of below
 ```
-VITE_apiKey= AIzaSyDCkotitfb4gZTW4Kkgkzx0myz8pFrOyzo
-VITE_authDomain= beginner-8b739.firebaseapp.com
-VITE_projectId= beginner-8b739
-VITE_storageBucket= beginner-8b739.firebasestorage.app
-VITE_messagingSenderId= 357346795980
-VITE_appId= 1:357346795980:web:756eb830b68e885686bd69
+VITE_apiKey
+VITE_authDomain
+VITE_projectId
+VITE_storageBucket
+VITE_messagingSenderId
+VITE_appId
 ```
 - use npm run dev in terminal
 
